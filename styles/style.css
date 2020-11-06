@@ -22,6 +22,30 @@ body {
 .totalSalaryDivClass p {
   font-weight: bold;
 }
+
+.tableDivClass {
+  width: 100%;
+  table-layout: fixed;
+  margin: 20px; 
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.tableDivClass th {
+  font-weight: bold;
+  border-bottom: 3px solid rgb(3, 3, 3);
+
+}
+
+.tableDivClass td {
+  font-weight: medium;
+  border: 1px solid rgb(3, 3, 3);
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
 /* old */
 .returnResultsClass {
   margin: 30px;
@@ -67,24 +91,9 @@ body {
   padding: 3px;
 }
 
-#vehicleList {
-  width: 100%;
-  table-layout: fixed;
-  border: 1px solid black;
-  border-collapse: collapse;
-}
 
-#vehicleList th {
-  font-weight: bold;
-  border-bottom: 3px solid rgb(3, 3, 3);
 
-}
 
-#vehicleList td {
-  font-weight: medium;
-  border: 1px solid rgb(3, 3, 3);
-
-}
 
 .italic {
     font-style: italic;
