@@ -1,0 +1,103 @@
+body {
+  margin: 0px;
+  background: url(../media/marble-2398946__340.jpg) repeat fixed center;
+}
+
+.formsDivClass {
+  padding: 1em;
+  margin: 20px;
+  text-align: left;
+  background: #93909c; 
+  color: #FBEEC1;
+  font-size: small;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.totalSalaryDivClass {
+  text-align: right;
+}
+
+.totalSalaryDivClass p {
+  font-weight: bold;
+}
+/* old */
+.returnResultsClass {
+  margin: 30px;
+  padding: 20px;
+  background: url(../images/marble_pink.jpg) repeat fixed center;
+  border: indigo;
+  border-radius: 6px;
+  border-width: 2px;
+}
+
+.returnResultsClass h3 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.headerClass {
+    padding: 1em;
+    text-align: center;
+    background: #8048C0;
+    color: #FFFFFF;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+.headerClass h1 {
+  font-size: x-large; 
+}
+
+.headerClass h2 {
+  font-size: large; 
+}
+
+
+
+.entryFormClass h2 {
+  margin-top: 5px;
+}
+
+.spotTally {
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: smaller;
+  padding: 3px;
+}
+
+#vehicleList {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#vehicleList th {
+  font-weight: bold;
+  border-bottom: 3px solid rgb(3, 3, 3);
+
+}
+
+#vehicleList td {
+  font-weight: medium;
+  border: 1px solid rgb(3, 3, 3);
+
+}
+
+.italic {
+    font-style: italic;
+}
+
+
+.doubleBorder {
+    border-style: double;
+    padding: 15px;
+    background-color: #BC986A;
+}
+
+.buttons {
+  border-radius: 3px;
+  color: green;
+}
