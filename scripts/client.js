@@ -34,8 +34,8 @@ const sampleEmployeeData = [
 ];
 
 const preloadData = (() => {
-    let i=0;
-    for ( i = 0; i < sampleEmployeeData.length; i += 1 ) {
+    
+    for ( let i = 0; i < sampleEmployeeData.length; i += 1 ) {
         employeeTable[i] = sampleEmployeeData [i]
     }
     console.log (`Employee Table`, employeeTable);
@@ -56,12 +56,31 @@ function docReady () {
     html += `</tr>`;
     $('#tableId').append(html)
 
-    for ( i = 0; i < employeeTable.length; i += 1 ) {
+    displayRecords();
+
+
+
+} // end docReady fn <------------
+
+function displayRecords() {
+    for ( let i = 0; i < employeeTable.length; i += 1 ) {
         html = `<tr class="tableRowClass">`;
         html+= `<td>${employeeTable[i].first}</td> <td>${employeeTable[i].last}</td> <td>${employeeTable[i].id}</td>`;
         html+= `<td>${employeeTable[i].title}</td> <td>${employeeTable[i].annualSalary}</td>`;
         html+=  `<td><button class="deleteButtonClass">Delete</button></td> </tr>`;
         $('#tableId').append (html);
     }
+    $('#totalMonthlyId').empty()
+    $('#totalMonthlyId').append(calculateMonthly())
+    
+}
 
-} // end docReady fn
+function calculateMonthly () {
+
+    let totalAnnual = 0;
+    for (let i = 0; i < employeeTable.length; i += 1 ) {
+        totalAnnual += employeeTable[i].annualSalary
+    }
+    
+    return  (Math.round(totalAnnual/12)).toFixed(2);
+}
