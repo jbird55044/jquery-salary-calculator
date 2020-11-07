@@ -1,7 +1,7 @@
 console.log (`Vatti Rocks`);
 
 const employeeTable=[];
-const monthlySalaryCap = 20000;
+const monthlySalaryCap = 20000;   // user requirement, aleart when exceeded monthly spend
 
 const sampleEmployeeData = [
     {
@@ -34,13 +34,13 @@ const sampleEmployeeData = [
     }
 ];
 
+// preloads working data (not a functional part of application)
 const preloadData = (() => {
-    
     for ( let i = 0; i < sampleEmployeeData.length; i += 1 ) {
         employeeTable[i] = sampleEmployeeData [i]
     }
     console.log (`Employee Table`, employeeTable);
-})();  // end of auto invoke IFII fn
+})();  // end of auto invoke IFFI fn
 
 
 $(document).ready (docReady);
@@ -65,6 +65,7 @@ function docReady () {
 
 } // --------------------> end docReady fn <--------------------
 
+// updates DOM w/ employee records
 function displayRecords() {
     let annualSalaryDollared = '';
     $('#tableId').empty();
@@ -79,11 +80,10 @@ function displayRecords() {
     $('#totalMonthlyId').empty()
     $('#totalMonthlyId').append(calculateMonthly())
     flagMonthlyIfHigh (monthlySalaryCap)
-    
-}
+}  // end of displayRecords fn
 
+// determines monthly salary run rate from annual sum
 function calculateMonthly () {
-
     let totalAnnual = 0;
     for (let i = 0; i < employeeTable.length; i += 1 ) {
         totalAnnual += employeeTable[i].annualSalary
@@ -92,14 +92,16 @@ function calculateMonthly () {
     totalMonthly = (Math.round((totalAnnual / 12) * 100)) / 100
     totalMonthly = totalMonthly.toFixed(2);
     return  convertNumToMoneyString(totalMonthly);
-}
+}  // end of calculateMonthly fn
 
+// user requirement - set breakpoint in const
 function flagMonthlyIfHigh(flagPoint) {
     if ( totalMonthly > flagPoint ) {
         $('#totalMonthlyId').css ('backgroundColor', 'red')
     } else {$('#totalMonthlyId').css ('backgroundColor', '')}
-}
+}  // end of flagMonthlyIfHigh fn
 
+// adds comma and cents onto money displayed in DOM (string)
 function convertNumToMoneyString (number) {
     // convert to money format
     let charNumberNew = '';
@@ -126,21 +128,23 @@ function convertNumToMoneyString (number) {
     function reverseString(str) {
         return str.split("").reverse().join("");
     }
-}
+}  // end of convertNumToMoneyString fn
 
+// check for specific user input criteria 
 function isValidString(str) {  
     if ( typeof str != "string" ) return false  
     if ( str.trim().length < 3 ) return false
     return true
-};
+};  //end of isValidString fn
     
-  // check for specific criteria 
+  // check for specific user input criteria 
   function isValidNumber(str) {
     if (typeof str != "string") return false //Process as string  
     if ( str.length < 3 ) return false
     return !isNaN(str) && !isNaN(parseFloat(str)) 
-  };
+  }; // end of isValidNumber fn
 
+// called upon clicking 'submit' button
 function submitEntry () {
     const employeeStaging = [];
     let first = $('#firstInputId').val()
@@ -198,12 +202,16 @@ function submitEntry () {
     return;
 } // end of submitEntry fn
 
+// deletes selected row on DOM via employee table
 function deleteRecord() {
-    let indexOfRecord = $(this).index()
-    console.log (`index of record`, indexOfRecord);
-
+    let eq = $(this).eq();
+    let rowIndex = eq.prevObject[0].parentElement.parentNode.rowIndex;
+    employeeTable.splice(rowIndex, 1);
+    displayRecords();
+    console.log (`delete record, row:`, rowIndex);
 } // end of deleteRecord fn
 
+// DOM clean up
 function clearEntry () {
     $('#firstInputId').val('');
     $('#lastInputId').val('');
@@ -216,4 +224,4 @@ function clearEntry () {
     $('#titleInputId').css ( 'border' , '' );
     $('#salaryInputId').css ( 'border' , '' );
     
-}
+} // end of clearEntry

@@ -66,6 +66,11 @@ body {
   border-radius: 3px;
   text-align: right;
 }
+
+.deleteButtonClass {
+  border-radius: 3px;
+}
+
 /* old */
 .returnResultsClass {
   margin: 30px;
