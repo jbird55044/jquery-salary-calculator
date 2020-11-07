@@ -57,16 +57,23 @@ function docReady () {
     $('#tableId').append(html)
 
     displayRecords();
+    // REMOVE
+    console.log (convertNumToMoneyString (1234567.47));
+    $('#submitButtonId').on ('click', submitEntry)
+    $('#clearButtonId').on ('click', clearEntry)
 
+    
 
 
 } // end docReady fn <------------
 
 function displayRecords() {
+    let annualSalaryDollared = '';
     for ( let i = 0; i < employeeTable.length; i += 1 ) {
+        annualSalaryDollared = convertNumToMoneyString(employeeTable[i].annualSalary);
         html = `<tr class="tableRowClass">`;
         html+= `<td>${employeeTable[i].first}</td> <td>${employeeTable[i].last}</td> <td>${employeeTable[i].id}</td>`;
-        html+= `<td>${employeeTable[i].title}</td> <td>${employeeTable[i].annualSalary}</td>`;
+        html+= `<td>${employeeTable[i].title}</td> <td>$${annualSalaryDollared}</td>`;
         html+=  `<td><button class="deleteButtonClass">Delete</button></td> </tr>`;
         $('#tableId').append (html);
     }
@@ -81,6 +88,63 @@ function calculateMonthly () {
     for (let i = 0; i < employeeTable.length; i += 1 ) {
         totalAnnual += employeeTable[i].annualSalary
     }
+    // math exersize is to round at the 100th place (cents).
+    totalMonthly = (Math.round((totalAnnual / 12) * 100)) / 100
+    return  totalMonthly.toFixed(2);
+}
+
+function convertNumToMoneyString (number) {
+    // convert to money format
+    let charNumberNew = '';
+    let charNumberOld = '';
+    let cents= '';
+    charNumberOld = number.toString();
+    if ( charNumberOld.indexOf('.') > 0 ) {
+        cents = charNumberOld.slice(charNumberOld.indexOf('.'));
+        charNumberOld = charNumberOld.slice( 0, charNumberOld.indexOf('.'));
+    }
+    // reverses string and adds ',' every third location
+    charNumberOld = reverseString(charNumberOld);
+    for ( c = 0; c < charNumberOld.length; c += 1 ) {
+        if (  (c != 0) && (c % 3) === 0 ) {
+        charNumberNew += (',')
+        }
+        charNumberNew += charNumberOld[c]
+    };
+    charNumberNew = reverseString(charNumberNew);
+    charNumberNew += cents
+    return charNumberNew;
+
+    function reverseString(str) {
+        return str.split("").reverse().join("");
+    }
+}
+
+function isValidString(str) {  
+    if ( typeof str != "string" ) return false  
+    if ( str.trim().length < 3 ) return false
+    return true
+};
     
-    return  (Math.round(totalAnnual/12)).toFixed(2);
+  // check for specific criteria 
+  function isNumeric(str) {
+    if (typeof str != "string") return false //Process as string  
+    if ( str.length < 3 ) return false
+    return !isNaN(str) && !isNaN(parseFloat(str)) 
+  };
+
+function submitEntry () {
+    $('#firstInputId').val()
+    $('#lastInputId').val()
+    $('#idInputId').val()
+    $('#titleInputId').val()
+    $('#salaryInputId').val()
+}
+
+function clearEntry () {
+    $('#firstInputId').val('');
+    $('#lastInputId').val('');
+    $('#idInputId').val('');
+    $('#titleInputId').val('');
+    $('#salaryInputId').val('');
 }
