@@ -90,7 +90,9 @@ function calculateMonthly () {
     }
     // math exersize is to round at the 100th place (cents).
     totalMonthly = (Math.round((totalAnnual / 12) * 100)) / 100
-    return  totalMonthly.toFixed(2);
+    totalMonthly = totalMonthly.toFixed(2);
+    convertNumToMoneyString
+    return  convertNumToMoneyString(totalMonthly);
 }
 
 function convertNumToMoneyString (number) {
@@ -127,18 +129,63 @@ function isValidString(str) {
 };
     
   // check for specific criteria 
-  function isNumeric(str) {
+  function isValidNumber(str) {
     if (typeof str != "string") return false //Process as string  
     if ( str.length < 3 ) return false
     return !isNaN(str) && !isNaN(parseFloat(str)) 
   };
 
 function submitEntry () {
-    $('#firstInputId').val()
-    $('#lastInputId').val()
-    $('#idInputId').val()
-    $('#titleInputId').val()
-    $('#salaryInputId').val()
+    const employeeStaging = [];
+    let first = $('#firstInputId').val()
+    let last = $('#lastInputId').val()
+    let id = $('#idInputId').val()
+    let title = $('#titleInputId').val()
+    let salary = $('#salaryInputId').val()
+    let allValid = true
+
+    if ( isValidString(first) ) {
+        employeeStaging.first = first;
+        $('#firstInputId').css ( 'border' , '' );
+    } else {
+        $('#firstInputId').css ( 'border' , '2px solid red' );
+        allValid = false
+    };
+    if ( isValidString(last) ) {
+        employeeStaging.last = last;
+        $('#lastInputId').css ( 'border' , '' );
+    } else {
+        $('#lastInputId').css ( 'border' , '2px solid red' );
+        allValid = false
+    };
+    if ( isValidString(id) ) {
+        employeeStaging.id = id;
+        $('#idInputId').css ( 'border' , '' );
+    } else {
+        $('#idInputId').css ( 'border' , '2px solid red' );
+        allValid = false
+    };
+    if ( isValidString(title) ) {
+        employeeStaging.title = title;
+        $('#titleInputId').css ( 'border' , '' );
+    } else {
+        $('#titleInputId').css ( 'border' , '2px solid red' );
+        allValid = false
+    };
+    if ( isValidNumber(salary) ) {
+        employeeStaging.annualSalary = salary;
+        $('#salaryInputId').css ( 'border' , '' );
+    } else {
+        $('#salaryInputId').css ( 'border' , '2px solid red' );
+        allValid = false
+    };
+
+    if ( allValid ) {
+        //update tabloe
+    } else {
+        alert ('Please correct Entries');
+    }
+
 }
 
 function clearEntry () {
@@ -147,4 +194,10 @@ function clearEntry () {
     $('#idInputId').val('');
     $('#titleInputId').val('');
     $('#salaryInputId').val('');
+    $('#firstInputId').css ( 'border' , '' );
+    $('#lastInputId').css ( 'border' , '' );
+    $('#idInputId').css ( 'border' , '' );
+    $('#titleInputId').css ( 'border' , '' );
+    $('#salaryInputId').css ( 'border' , '' );
+    
 }

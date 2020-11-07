@@ -16,6 +16,8 @@ body {
 }
 
 .totalSalaryDivClass {
+  width: 600px;
+  margin: 0 auto; 
   text-align: right;
 }
 
@@ -24,13 +26,17 @@ body {
 }
 
 .tableDivClass {
-  width: 100%;
+  width: 600px;
   table-layout: fixed;
-  margin: 20px; 
+  margin: 0 auto; 
+  padding: 20px;
   border: 1px solid black;
   border-collapse: collapse;
 }
 
+.tableClass {
+  margin: 0 auto;
+}
 .tableDivClass th {
   padding-top: 12px;
   padding-left: 12px;
