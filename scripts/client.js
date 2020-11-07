@@ -1,35 +1,36 @@
 console.log (`Vatti Rocks`);
 
 const employeeTable=[];
+const monthlySalaryCap = 20000;
 
 const sampleEmployeeData = [
     {
         first: 'John',
         last: 'Smith',
         id: '3453',
-        title: 'Operations Manager',
-        annualSalary: 65000
+        title: 'WareHouse Employee',
+        annualSalary: 25000.00
     },
     {
         first: 'Paul',
         last: 'Jones',
         id: '2223',
-        title: 'Data Entry',
-        annualSalary: 35500
+        title: 'Short Order Cook',
+        annualSalary: 15500.25
     },
     {
         first: 'Mary',
         last: 'Smithstone',
         id: '1244',
-        title: 'VP of Production',
-        annualSalary: 165000
+        title: 'Production Manager',
+        annualSalary: 55000.00
     },
     {
         first: 'Susie',
         last: 'Hardball',
-        id: '37',
-        title: 'CEO Owner',
-        annualSalary: 265000
+        id: '3751',
+        title: 'Director',
+        annualSalary: 135000.00
     }
 ];
 
@@ -57,18 +58,16 @@ function docReady () {
     $('#tableId').append(html)
 
     displayRecords();
-    // REMOVE
-    console.log (convertNumToMoneyString (1234567.47));
     $('#submitButtonId').on ('click', submitEntry)
     $('#clearButtonId').on ('click', clearEntry)
+    $('.deleteButtonClass').on ('click', deleteRecord)
 
-    
 
-
-} // end docReady fn <------------
+} // --------------------> end docReady fn <--------------------
 
 function displayRecords() {
     let annualSalaryDollared = '';
+    $('#tableId').empty();
     for ( let i = 0; i < employeeTable.length; i += 1 ) {
         annualSalaryDollared = convertNumToMoneyString(employeeTable[i].annualSalary);
         html = `<tr class="tableRowClass">`;
@@ -79,6 +78,7 @@ function displayRecords() {
     }
     $('#totalMonthlyId').empty()
     $('#totalMonthlyId').append(calculateMonthly())
+    flagMonthlyIfHigh (monthlySalaryCap)
     
 }
 
@@ -91,15 +91,20 @@ function calculateMonthly () {
     // math exersize is to round at the 100th place (cents).
     totalMonthly = (Math.round((totalAnnual / 12) * 100)) / 100
     totalMonthly = totalMonthly.toFixed(2);
-    convertNumToMoneyString
     return  convertNumToMoneyString(totalMonthly);
+}
+
+function flagMonthlyIfHigh(flagPoint) {
+    if ( totalMonthly > flagPoint ) {
+        $('#totalMonthlyId').css ('backgroundColor', 'red')
+    } else {$('#totalMonthlyId').css ('backgroundColor', '')}
 }
 
 function convertNumToMoneyString (number) {
     // convert to money format
     let charNumberNew = '';
     let charNumberOld = '';
-    let cents= '';
+    let cents= null;
     charNumberOld = number.toString();
     if ( charNumberOld.indexOf('.') > 0 ) {
         cents = charNumberOld.slice(charNumberOld.indexOf('.'));
@@ -114,6 +119,7 @@ function convertNumToMoneyString (number) {
         charNumberNew += charNumberOld[c]
     };
     charNumberNew = reverseString(charNumberNew);
+    if ( cents === null ) cents = '.00'
     charNumberNew += cents
     return charNumberNew;
 
@@ -173,6 +179,7 @@ function submitEntry () {
         allValid = false
     };
     if ( isValidNumber(salary) ) {
+        salary = parseFloat(salary)
         employeeStaging.annualSalary = salary;
         $('#salaryInputId').css ( 'border' , '' );
     } else {
@@ -181,12 +188,21 @@ function submitEntry () {
     };
 
     if ( allValid ) {
-        //update tabloe
+        //console.log (`stage`, employeeStaging);
+        employeeTable.push(employeeStaging);
+        clearEntry();
+        displayRecords();
     } else {
         alert ('Please correct Entries');
     }
+    return;
+} // end of submitEntry fn
 
-}
+function deleteRecord() {
+    let indexOfRecord = $(this).index()
+    console.log (`index of record`, indexOfRecord);
+
+} // end of deleteRecord fn
 
 function clearEntry () {
     $('#firstInputId').val('');

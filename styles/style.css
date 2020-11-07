@@ -54,6 +54,10 @@ body {
   padding-bottom: 2px;
 }
 
+.tableDivClass tr td:nth-child(5) {
+  text-align: right;
+}
+
 .buttonDivClass {
   text-align: right;
   padding: 15px;
