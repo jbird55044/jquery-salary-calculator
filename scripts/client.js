@@ -60,6 +60,7 @@ function docReady () {
     $('#clearButtonId').on ('click', clearEntry)
 } // --------------------> end docReady fn <--------------------
 
+
 // Functions ...
 // updates DOM w/ employee records
 function displayRecords() {
@@ -80,6 +81,7 @@ function displayRecords() {
 
 }  // end of displayRecords fn
 
+
 // determines monthly salary run rate from annual sum
 function calculateMonthly () {
     let totalAnnual = 0;
@@ -92,12 +94,14 @@ function calculateMonthly () {
     return  convertNumToMoneyString(totalMonthly);
 }  // end of calculateMonthly fn
 
+
 // user requirement - set breakpoint in const
 function flagMonthlyIfHigh(flagPoint) {
     if ( totalMonthly > flagPoint ) {
         $('#totalMonthlyId').css ('backgroundColor', 'red')
     } else {$('#totalMonthlyId').css ('backgroundColor', '')}
 }  // end of flagMonthlyIfHigh fn
+
 
 // adds comma and cents onto money displayed in DOM (string)
 function convertNumToMoneyString (number) {
@@ -128,6 +132,7 @@ function convertNumToMoneyString (number) {
     }
 }  // end of convertNumToMoneyString fn
 
+
 // check for specific user input criteria 
 function isValidString(str) {  
     if ( typeof str != "string" ) return false  
@@ -135,12 +140,14 @@ function isValidString(str) {
     return true
 };  //end of isValidString fn
     
+
   // check for specific user input criteria 
   function isValidNumber(str) {
     if (typeof str != "string") return false //Process as string  
     if ( str.length < 3 ) return false
     return !isNaN(str) && !isNaN(parseFloat(str)) 
   }; // end of isValidNumber fn
+
 
 // called upon clicking 'submit' button
 function submitEntry () {
@@ -200,6 +207,7 @@ function submitEntry () {
     return;
 } // end of submitEntry fn
 
+
 // deletes selected row on DOM via employee table
 function deleteRecord() {
     let eq = $(this).eq();
@@ -207,6 +215,7 @@ function deleteRecord() {
     employeeTable.splice(rowIndex, 1);
     displayRecords();
 } // end of deleteRecord fn
+
 
 // DOM clean up
 function clearEntry () {
@@ -220,5 +229,4 @@ function clearEntry () {
     $('#idInputId').css ( 'border' , '' );
     $('#titleInputId').css ( 'border' , '' );
     $('#salaryInputId').css ( 'border' , '' );
-    
 } // end of clearEntry
