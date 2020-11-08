@@ -39,7 +39,7 @@ const preloadData = (() => {
     for ( let i = 0; i < sampleEmployeeData.length; i += 1 ) {
         employeeTable[i] = sampleEmployeeData [i]
     }
-    console.log (`Employee Table`, employeeTable);
+    //console.log (`Employee Table`, employeeTable);
 })();  // end of auto invoke IFFI fn
 
 
@@ -47,8 +47,6 @@ $(document).ready (docReady);
 
 
 function docReady () {
-    console.log (`in docReady`);
-
     //generate Table HTML
     // Title</th><th>Annual Salary</th>
     html = `<tr>`
@@ -60,11 +58,9 @@ function docReady () {
     displayRecords();
     $('#submitButtonId').on ('click', submitEntry)
     $('#clearButtonId').on ('click', clearEntry)
-    $('.deleteButtonClass').on ('click', deleteRecord)
-
-
 } // --------------------> end docReady fn <--------------------
 
+// Functions ...
 // updates DOM w/ employee records
 function displayRecords() {
     let annualSalaryDollared = '';
@@ -80,6 +76,8 @@ function displayRecords() {
     $('#totalMonthlyId').empty()
     $('#totalMonthlyId').append(calculateMonthly())
     flagMonthlyIfHigh (monthlySalaryCap)
+    $('.deleteButtonClass').on ('click', deleteRecord)
+
 }  // end of displayRecords fn
 
 // determines monthly salary run rate from annual sum
@@ -208,7 +206,6 @@ function deleteRecord() {
     let rowIndex = eq.prevObject[0].parentElement.parentNode.rowIndex;
     employeeTable.splice(rowIndex, 1);
     displayRecords();
-    console.log (`delete record, row:`, rowIndex);
 } // end of deleteRecord fn
 
 // DOM clean up

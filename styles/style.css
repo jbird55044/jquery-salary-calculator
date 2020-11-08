@@ -1,19 +1,34 @@
 body {
   margin: 0px;
   background: url(../media/marble-2398946__340.jpg) repeat fixed center;
+  max-width: 875px;
 }
 
 .formsDivClass {
+  max-width: 800px;
   padding: 1em;
   margin: 20px;
   text-align: left;
-  background: #93909c; 
-  color: #FBEEC1;
+  background: #888d90; 
+  color: #e6e9dc;
+  border:  2px solid #252c3c;
   font-size: small;
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
-
 }
+
+.formsDivClass label {
+  display: inline-block;
+  background-color: #89716c;
+  margin-right: 2px;
+  padding: 1px;
+}
+
+#labelFirstId {width: 150px;}
+#labelLastId {width: 149px;}
+#labelIdId {width: 50px;}
+#labelTitleId {width: 150px;}
+#labelSalaryId {width: 150px;}
 
 .totalSalaryDivClass {
   width: 600px;
@@ -30,7 +45,7 @@ body {
   table-layout: fixed;
   margin: 0 auto; 
   padding: 20px;
-  border: 1px solid black;
+  border: 1px solid #252c3c;
   border-collapse: collapse;
 }
 
@@ -41,13 +56,13 @@ body {
   padding-top: 12px;
   padding-left: 12px;
   font-weight: bold;
-  border-bottom: 3px solid rgb(3, 3, 3);
+  border-bottom: 3px solid #252c3c;
 
 }
 
 .tableDivClass td {
   font-weight: medium;
-  border: 1px solid rgb(3, 3, 3);
+  border: 1px solid #252c3c;
   padding-left: 12px;
   padding-right: 8px;
   padding-top: 2px;
@@ -71,67 +86,13 @@ body {
   border-radius: 3px;
 }
 
-/* old */
-.returnResultsClass {
-  margin: 30px;
-  padding: 20px;
-  background: url(../images/marble_pink.jpg) repeat fixed center;
-  border: indigo;
-  border-radius: 6px;
-  border-width: 2px;
+footer {
+  font-style: italic;
+  text-align: center;
 }
 
-.returnResultsClass h3 {
-  margin: 0px;
-  padding: 0px;
+hr {
+  margin: 40px;
+  color: 252c3c;
 }
 
-.headerClass {
-    padding: 1em;
-    text-align: center;
-    background: #8048C0;
-    color: #FFFFFF;
-    font-size: large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-
-.headerClass h1 {
-  font-size: x-large; 
-}
-
-.headerClass h2 {
-  font-size: large; 
-}
-
-
-
-.entryFormClass h2 {
-  margin-top: 5px;
-}
-
-.spotTally {
-  border: 2px solid #000;
-  border-radius: 6px;
-  font-size: smaller;
-  padding: 3px;
-}
-
-
-
-
-
-.italic {
-    font-style: italic;
-}
-
-
-.doubleBorder {
-    border-style: double;
-    padding: 15px;
-    background-color: #BC986A;
-}
-
-.buttons {
-  border-radius: 3px;
-  color: green;
-}
