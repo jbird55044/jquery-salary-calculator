@@ -210,10 +210,15 @@ function submitEntry () {
 
 // deletes selected row on DOM via employee table
 function deleteRecord() {
+    // give user  a change to abort
+    let confirmMsg = `About to delete 1 employee record!`;
+    if ( !confirm(confirmMsg) ) return false  // abort
+    // move forward with delete
     let eq = $(this).eq();
     let rowIndex = eq.prevObject[0].parentElement.parentNode.rowIndex;
     employeeTable.splice(rowIndex, 1);
     displayRecords();
+    return;
 } // end of deleteRecord fn
 
 
