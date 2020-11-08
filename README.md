@@ -15,7 +15,7 @@ To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.Ja
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![picture] (https://github.com/jbird55044/jquery-salary-calculator/blob/master/media/Sample_Screen_Shot.png?raw=true)
 
 
 
