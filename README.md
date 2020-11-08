@@ -9,9 +9,9 @@
 
 _Duration: Weekend Sprint_
 
-This application allows you to calculate Salaries.  blah blah blah 
+This application allows you to calculate Salaries.  Employee and associated information are stored in temporary tables.  The version of application does not retain information upon terminating. 
 
-To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
+To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.JamesDBird.me)
 
 ## Screen Shot
 
