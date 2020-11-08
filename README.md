@@ -15,7 +15,7 @@ To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.Ja
 
 ## Screen Shot
 
-![SCREEN_SHOT] (/media/Sample_Screen_Shot.png)
+![SCREEN_SHOT] (media/Sample_Screen_Shot.png)
 
 
 
