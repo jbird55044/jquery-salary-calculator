@@ -21,17 +21,14 @@ To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.Ja
 
 ## Installation
 
-Open HTML file in the browser
+Open HTML file in the browser.
 
 ## Usage
-How does someone use this application? Tell a user story here.
+Sample data is loaded upon application invocation.   Add additional data with form entries on the top of the page.   Entries will perform data validation.  All entries must be greater than 3 chars.
 
-1. xxx
-2. xxx
-3. xxx
-4. xxx
-5. xxx
-6. xxx
+Clear button will clear entries that have not yet been submitted.
+
+Delete button on table rows will delete that row with alert confirmation.
 
 
 ## Built With
@@ -40,13 +37,9 @@ JQuery
 HTML
 JavaScript
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
-
-_Note, include this only if you have a license file. GitHub will generate one for you if you want!_
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. (Thank your people)
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality.  Vatti Rocks!
 
 ## Support
-If you have suggestions or issues, please email me at [youremail@whatever.com](www.google.com)
+If you have suggestions or issues, please contact me at www.JamesDBird.com
